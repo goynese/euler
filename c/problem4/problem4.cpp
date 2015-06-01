@@ -7,29 +7,44 @@ using namespace std;
 
 bool ispalindrome(unsigned int n)
 {
-    //convert integer to a string
     string str = to_string(n);
-    
-    for(string::const_iterator i = str.begin(), j = str.end(); i < j; i++, j--)
-    {
-        if(*i != *j)
-            return false;
-    }
-    return true;
+    if(str == string(str.rbegin(), str.rend))
+        return true;
+    return false
 }
+
+int largest_palindome_product(unsigned int n)
+{
+    int prod, max = 0;
+    for(int i = n; i > 0; i--)
+    {
+        for(int j = n; j > 0; j--)
+        {
+            prod = i*j;
+            if(ispalindrome(prod))
+            {
+                if(prod > max)
+                {
+                    max = prod;
+                }
+            }
+        }
+    }
+    return max
+}
+
+int time_palindrome(unsigned int n)
+{
+    clock_t begin = clock();
+    
+    clock_t end = clock();
+    cout << "\n" << "Time taken " << end - begin << "\n";
+}
+
 
 int main(int argc, char *argv[])
 {
-    clock_t begin = clock();
-    if(ispalindrome(atoi(argv[1])) == true)
-        cout << true;
-    else
-        cout << false;
-    
-    clock_t end = clock();
-    
-    cout << "\n" << "Time taken " << end - begin << "\n";
-    
+    printf("%d\n",largest_palindome_product(atoi(argv[1])));
     
     return 0;
 }

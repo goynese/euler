@@ -7,6 +7,5 @@ def sum():
             sum += n
     return sum
 
-
 if __name__ == "__main__":
     print sum()
