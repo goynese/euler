@@ -12,16 +12,15 @@ def read_pyramid():
 	return rows
 
 
-
-
-
 def pyramid_path_sum():
 	rows = read_pyramid()[::-1]
 
 	for (r, row) in enumerate(rows[1::]):
 		for (i,num) in enumerate(row):
-			rows[r+1][i] = max(num*rows[r][i],num*rows[r][i+1])
+			rows[r+1][i] = max(num+rows[r][i],num+rows[r][i+1])
 
 	print (rows[len(rows)-1][0])
+	print (rows)
 
 pyramid_path_sum()
+
