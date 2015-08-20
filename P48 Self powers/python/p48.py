@@ -16,7 +16,7 @@ def trivial_solution(n = 1000):
 trivial_solution()
 
 #Soltion that doesn't require bigint. Works well in C++ with a long long.
-#Producest last 1- digits when N is arbitrarily large.
+#Producest last 10 digits when N is arbitrarily large.
 def self_powers_mod(n = 1000):
 	summ = 0
 	for x in range(1, n + 1):
