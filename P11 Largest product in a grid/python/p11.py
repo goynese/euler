@@ -1,33 +1,18 @@
 import sys
 
-def read_file_lines():
-	try:
-		f = open('grid', 'r')
-	except IOError:
-		print "grid file cannot be opened"
-
-	lines = []
-
-	while(True):
-		line = f.readline()
-		if lines != "":
-			lines.append(line)
-		else:
-			break
-	return lines
-
-
 def create_matrix():
-	lines = read_file_lines()
+	with open('grid') as f:
+		lines = f.readlines()
 
-	for line in lines:
-		line.split()
+	matrix = [[int(x) for x in y.split()] for y in lines]
 
-	print lines
+	return matrix
 
-
-
-
+def max4Product(matrix):
+		
 
 if __name__ == '__main__':
-	read_file_lines()
+	matrix = create_matrix()
+	print (matrix)
+
+
